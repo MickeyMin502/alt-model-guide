@@ -9,10 +9,14 @@ import matplotlib
 import numpy as np
 import pandas as pd
 
-# ====== 设置中文字体 ======
-# 使用黑体（Windows 系统自带）
-plt.rcParams['font.sans-serif'] = ['SimHei', 'Microsoft YaHei', 'Arial Unicode MS']
-plt.rcParams['axes.unicode_minus'] = False  # 解决负号显示问题
+# ====== 设置中文字体（兼容本地和云端） ======
+try:
+    # 尝试使用云端常见字体
+    plt.rcParams['font.sans-serif'] = ['WenQuanYi Zen Hei', 'Noto Sans CJK SC', 'DejaVu Sans']
+except:
+    # 如果失败，使用默认
+    pass
+plt.rcParams['axes.unicode_minus'] = False
 
 st.set_page_config(
     page_title="ALT 模型选择指南",
